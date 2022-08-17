@@ -1,0 +1,40 @@
+.container {
+    width: 50%;
+    height: 100%;
+    border-right:1px solid #e3e9ee;
+    border-left:1px solid #e3e9ee;
+}
+.listItemContainer {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  height: 60px;
+  border-bottom: 1px solid #eeeff0;
+}
+
+.listItemContainer:hover {
+  background-color: #fafafa;
+}
+
+.episodeName{
+  flex:0.2;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  color: #748292;
+
+}
+.episodeTitle {
+  flex:0.6;
+  font-size: 14px;
+  color: #3b4651;
+  font-weight: bold;
+
+}
+.episodeDate {
+  flex:0.2;
+  font-size: 12px;
+  color: #3b4651;
+  text-align: right;
+
+}

@@ -1,0 +1,36 @@
+.container {
+    width: 50%;
+    height: 100%;
+    border-right:1px solid #e3e9ee;
+    border-left:1px solid #e3e9ee;
+}
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 30px;
+}
+
+.title{
+  font-weight: 500;
+  font-size: 22px;
+  color: #000;
+  text-align: left;
+  margin-bottom: 10px;
+
+
+}
+.body {
+  font-size: 14px;
+  color: rgb(101, 101, 101);
+  text-align: left;
+  line-height: 22px;
+
+}
+.director {
+  font-size: 16px;
+  color: rgb(101, 101, 101);
+  text-align: left;
+  margin-top: 10px;
+
+}
