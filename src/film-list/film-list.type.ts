@@ -1,4 +1,4 @@
-export interface MapControllerPropsInterface {
-  data?: Record<string, unknown>[];
-  resource?: string;
+export interface FilmListViewPropsInterface {
+  filmList?: Record<string, unknown>[];
+  isLoading: boolean;
 }
