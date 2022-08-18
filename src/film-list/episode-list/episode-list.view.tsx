@@ -4,12 +4,10 @@ import ListItem from "@mui/material/ListItem";
 import styles from "./episode-list.module.scss";
 import { EpisodeListViewPropsInterface } from "./episode-list.type";
 import { FilmListInterface } from "../../redux/films/types";
-import { selectEpisode } from "../../redux/films/actions";
 import { useDispatch } from "react-redux";
 import { EpisodeInfo } from "./episode-info";
 const EpisodeListView: FC<EpisodeListViewPropsInterface> = (props) => {
-  const { filmList, isLoading } = props;
-  const dispatch = useDispatch();
+  const { filmList, isLoading, handleSelectEpisode } = props;
 
   if (isLoading) {
     return <div className={styles.isLoading}>Loading...</div>;
@@ -21,9 +19,7 @@ const EpisodeListView: FC<EpisodeListViewPropsInterface> = (props) => {
           {filmList?.map((filmItem: FilmListInterface) => (
             <ListItem
               className={styles.listItemContainer}
-              onClick={() =>
-                dispatch(selectEpisode({ selectedEpisode: filmItem }))
-              }
+              onClick={handleSelectEpisode(filmItem)}
             >
               <div className={styles.episodeName}>
                 Episode {filmItem.episode_id}

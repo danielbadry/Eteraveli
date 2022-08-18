@@ -9,6 +9,7 @@ import {
 } from "../../redux/films/selectors";
 import { fetchFilmsRequest } from "../../redux/films/actions";
 import { FilmListInterface } from "../../redux/films/types";
+import { selectEpisode } from "../../redux/films/actions";
 
 const EpisodeListController: FC = (props) => {
   const dispatch = useDispatch();
@@ -20,7 +21,17 @@ const EpisodeListController: FC = (props) => {
     dispatch(fetchFilmsRequest());
   }, []);
 
-  return <EpisodeListView isLoading={pending} filmList={filmList} />;
+  const handleSelectEpisode = (filmItem: FilmListInterface) => (event: any) => {
+    dispatch(selectEpisode({ selectedEpisode: filmItem }));
+  };
+
+  return (
+    <EpisodeListView
+      isLoading={pending}
+      filmList={filmList}
+      handleSelectEpisode={handleSelectEpisode}
+    />
+  );
 };
 
 export default EpisodeListController;
