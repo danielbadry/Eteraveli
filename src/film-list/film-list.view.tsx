@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import { AppBar } from "./app-bar";
-import { EpisodeInfo } from "./episode-info";
+import { EpisodeInfo } from "./episode-list/episode-info";
 import { EpisodeList } from "./episode-list";
 import styles from "./film-list.module.scss";
 import { FilmListViewPropsInterface } from "./film-list.type";
@@ -10,7 +10,6 @@ const FilmListView: FC = (props) => {
       <AppBar />
       <div className={styles.bodyContainer}>
         <EpisodeList />
-        <EpisodeInfo />
       </div>
     </div>
   );

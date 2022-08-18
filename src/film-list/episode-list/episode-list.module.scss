@@ -5,13 +5,12 @@
     border-left:1px solid #e3e9ee;
 }
 .isLoading{
-  width: 50%;
-  height: 100%;
-  border-right:1px solid #e3e9ee;
-  border-left:1px solid #e3e9ee;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   justify-content: center;
   align-items: center;
-
+  border:1px solid #e3e9ee;
 }
 .listItemContainer {
   display: flex;
