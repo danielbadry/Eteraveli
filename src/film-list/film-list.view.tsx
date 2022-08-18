@@ -5,7 +5,7 @@ import { EpisodeList } from "./episode-list";
 import styles from "./film-list.module.scss";
 import { FilmListViewPropsInterface } from "./film-list.type";
 const FilmListView: FC<FilmListViewPropsInterface> = (props) => {
-  const { isLoading, filmList } = props;
+  const { isLoading } = props;
 
   if (isLoading) return <div>Loading...</div>;
 

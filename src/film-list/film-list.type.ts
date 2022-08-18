@@ -1,4 +1,5 @@
+import { FilmListInterface } from "../redux/films/types";
+
 export interface FilmListViewPropsInterface {
-  filmList?: Record<string, unknown>[];
   isLoading: boolean;
 }

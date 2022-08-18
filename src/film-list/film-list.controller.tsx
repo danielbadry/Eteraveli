@@ -1,12 +1,17 @@
 import { FC, useState, useEffect } from "react";
 import FilmListView from "./film-list.view";
 
-const FilmListController: FC = () => {
-  const [filmList, setFilmList] = useState<Record<string, unknown>[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+import { useDispatch, useSelector } from "react-redux";
 
-  useEffect(() => {});
-  return <FilmListView isLoading={isLoading} filmList={filmList} />;
+import {
+  getPendingSelector,
+  getFilmsSelector,
+  getErrorSelector,
+} from "../redux/films/selectors";
+import { fetchFilmsRequest } from "../redux/films/actions";
+
+const FilmListController: FC = () => {
+  return <FilmListView isLoading={false} />;
 };
 
 export default FilmListController;
