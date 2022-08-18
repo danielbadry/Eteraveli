@@ -1,8 +1,7 @@
 .container {
     width: 50%;
-    height: 100%;
+    height: auto;
     border-right:1px solid #e3e9ee;
-    border-left:1px solid #e3e9ee;
 }
 .isLoading{
   display: flex;
@@ -10,7 +9,6 @@
   flex: 1;
   justify-content: center;
   align-items: center;
-  border:1px solid #e3e9ee;
 }
 .listItemContainer {
   display: flex;

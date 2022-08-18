@@ -34,8 +34,9 @@ const EpisodeListView: FC<EpisodeListViewPropsInterface> = (props) => {
           ))}
         </List>
       </div>
-
-      <EpisodeInfo />
+      <div className={styles.container}>
+        <EpisodeInfo />
+      </div>
     </>
   );
 };
