@@ -11,7 +11,7 @@ import { fetchFilmsRequest } from "../../redux/films/actions";
 import { FilmListInterface } from "../../redux/films/types";
 import { selectEpisode } from "../../redux/films/actions";
 
-const EpisodeListController: FC = (props) => {
+const EpisodeListController: FC = () => {
   const dispatch = useDispatch();
   const pending = useSelector(getPendingSelector);
   const filmList: FilmListInterface[] = useSelector(getFilmsSelector);
