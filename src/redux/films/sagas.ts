@@ -3,7 +3,7 @@ import { all, call, put, takeLatest } from "redux-saga/effects";
 
 import { fetchFilmsFailure, fetchFilmsSuccess } from "./actions";
 import { FETCH_FILMS_REQUEST } from "./actionTypes";
-import { FilmListInterface, FilmAxiosResponse } from "./types";
+import { FilmAxiosResponse } from "./types";
 
 const getFilms = () =>
   axios.get<FilmAxiosResponse>("https://swapi.dev/api/films/?format=json");

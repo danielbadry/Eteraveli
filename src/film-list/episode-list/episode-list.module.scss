@@ -4,6 +4,15 @@
     border-right:1px solid #e3e9ee;
     border-left:1px solid #e3e9ee;
 }
+.isLoading{
+  width: 50%;
+  height: 100%;
+  border-right:1px solid #e3e9ee;
+  border-left:1px solid #e3e9ee;
+  justify-content: center;
+  align-items: center;
+
+}
 .listItemContainer {
   display: flex;
   flex-direction: row;

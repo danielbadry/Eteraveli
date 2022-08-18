@@ -2,6 +2,7 @@ import {
   FETCH_FILMS_REQUEST,
   FETCH_FILMS_SUCCESS,
   FETCH_FILMS_FAILURE,
+  SELECT_EPISODE,
 } from "./actionTypes";
 
 export interface FilmAxiosResponse {
@@ -27,6 +28,7 @@ export interface FilmsState {
   pending: boolean;
   films: FilmListInterface[];
   error: string | null;
+  selectedEpisode: string | null;
 }
 
 export interface FetchFilmsSuccessPayload {
@@ -51,7 +53,16 @@ export type FetchFilmsFailure = {
   payload: FetchFilmsFailurePayload;
 };
 
+export interface SelectedEpisodePayload {
+  selectedEpisode: any;
+}
+export type SelectedEpisode = {
+  type: typeof SELECT_EPISODE;
+  payload: SelectedEpisodePayload;
+};
+
 export type FilmsActions =
   | FetchFilmsRequest
   | FetchFilmsSuccess
-  | FetchFilmsFailure;
+  | FetchFilmsFailure
+  | SelectedEpisode;

@@ -2,6 +2,7 @@ import {
   FETCH_FILMS_REQUEST,
   FETCH_FILMS_SUCCESS,
   FETCH_FILMS_FAILURE,
+  SELECT_EPISODE,
 } from "./actionTypes";
 
 import { FilmsActions, FilmsState } from "./types";
@@ -10,6 +11,7 @@ const initialState: FilmsState = {
   pending: false,
   films: [],
   error: null,
+  selectedEpisode: null,
 };
 
 const actions = (state = initialState, action: FilmsActions) => {
@@ -18,6 +20,7 @@ const actions = (state = initialState, action: FilmsActions) => {
       return {
         ...state,
         pending: true,
+        selectedEpisode: null,
       };
     case FETCH_FILMS_SUCCESS:
       return {
@@ -25,6 +28,7 @@ const actions = (state = initialState, action: FilmsActions) => {
         pending: false,
         films: action.payload.films,
         error: null,
+        selectedEpisode: null,
       };
     case FETCH_FILMS_FAILURE:
       return {
@@ -32,6 +36,12 @@ const actions = (state = initialState, action: FilmsActions) => {
         pending: false,
         films: [],
         error: action.payload.error,
+        selectedEpisode: null,
+      };
+    case SELECT_EPISODE:
+      return {
+        ...state,
+        selectedEpisode: action.payload.selectedEpisode,
       };
     default:
       return {

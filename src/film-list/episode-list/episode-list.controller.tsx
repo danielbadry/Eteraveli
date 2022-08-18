@@ -8,18 +8,19 @@ import {
   getErrorSelector,
 } from "../../redux/films/selectors";
 import { fetchFilmsRequest } from "../../redux/films/actions";
+import { FilmListInterface } from "../../redux/films/types";
 
 const EpisodeListController: FC = (props) => {
   const dispatch = useDispatch();
   const pending = useSelector(getPendingSelector);
-  const filmList: any = useSelector(getFilmsSelector);
+  const filmList: FilmListInterface[] = useSelector(getFilmsSelector);
   const error = useSelector(getErrorSelector);
 
   useEffect(() => {
     dispatch(fetchFilmsRequest());
   }, []);
 
-  return <EpisodeListView filmList={filmList} />;
+  return <EpisodeListView isLoading={pending} filmList={filmList} />;
 };
 
 export default EpisodeListController;

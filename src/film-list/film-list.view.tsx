@@ -4,11 +4,7 @@ import { EpisodeInfo } from "./episode-info";
 import { EpisodeList } from "./episode-list";
 import styles from "./film-list.module.scss";
 import { FilmListViewPropsInterface } from "./film-list.type";
-const FilmListView: FC<FilmListViewPropsInterface> = (props) => {
-  const { isLoading } = props;
-
-  if (isLoading) return <div>Loading...</div>;
-
+const FilmListView: FC = (props) => {
   return (
     <div className={styles.container}>
       <AppBar />
