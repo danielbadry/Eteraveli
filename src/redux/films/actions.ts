@@ -4,6 +4,7 @@ import {
   FETCH_FILMS_SUCCESS,
   SELECT_EPISODE,
   SET_SEARCH_VALUE,
+  SET_SORT_VALUE,
 } from "./actionTypes";
 import {
   FetchFilmsRequest,
@@ -15,6 +16,8 @@ import {
   SelectedEpisode,
   SetSearchValuePayload,
   SearchValue,
+  SetSortValuePayload,
+  SortValue,
 } from "./types";
 
 export const fetchFilmsRequest = (): FetchFilmsRequest => ({
@@ -46,5 +49,10 @@ export const setSearchValue = (
   payload: SetSearchValuePayload
 ): SearchValue => ({
   type: SET_SEARCH_VALUE,
+  payload,
+});
+
+export const setSortValue = (payload: SetSortValuePayload): SortValue => ({
+  type: SET_SORT_VALUE,
   payload,
 });

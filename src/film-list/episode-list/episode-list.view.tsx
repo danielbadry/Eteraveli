@@ -20,6 +20,7 @@ const EpisodeListView: FC<EpisodeListViewPropsInterface> = (props) => {
             <ListItem
               className={styles.listItemContainer}
               onClick={handleSelectEpisode(filmItem)}
+              key={filmItem.episode_id}
             >
               <div className={styles.episodeName}>
                 Episode {filmItem.episode_id}

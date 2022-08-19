@@ -14,7 +14,6 @@ const initialState: FilmsState = {
   films: [],
   error: null,
   selectedEpisode: null,
-  sortValue: null,
 };
 
 const actions = (state = initialState, action: FilmsActions) => {
@@ -30,7 +29,6 @@ const actions = (state = initialState, action: FilmsActions) => {
         ...state,
         pending: false,
         films: action.payload.films,
-        allFilms: action.payload.films,
         error: null,
         selectedEpisode: null,
       };
@@ -46,11 +44,6 @@ const actions = (state = initialState, action: FilmsActions) => {
       return {
         ...state,
         selectedEpisode: action.payload.selectedEpisode,
-      };
-    case SET_SORT_VALUE:
-      return {
-        ...state,
-        sortValue: action.payload.sortValue,
       };
     default:
       return {

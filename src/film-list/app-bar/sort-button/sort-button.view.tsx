@@ -3,24 +3,18 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import styles from "./sort-button.module.scss";
+import { SortButtonViewPropsInterface } from "./sort-button.type";
 
-const SortButton: FC = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+const SortButtonView: FC<SortButtonViewPropsInterface> = (props) => {
+  const { handleClick, handleClose, isOpen, anchorEl, handleClickSortItem } =
+    props;
   return (
     <>
       <Button
         id="sort-button"
-        aria-controls={open ? "sort-menu" : undefined}
+        aria-controls={isOpen ? "sort-menu" : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
+        aria-expanded={isOpen ? "true" : undefined}
         onClick={handleClick}
         className={styles.sortButton}
       >
@@ -30,7 +24,7 @@ const SortButton: FC = () => {
         id="sort-menu"
         aria-labelledby="sort-button"
         anchorEl={anchorEl}
-        open={open}
+        open={isOpen}
         onClose={handleClose}
         anchorOrigin={{
           vertical: "bottom",
@@ -41,11 +35,18 @@ const SortButton: FC = () => {
           horizontal: "left",
         }}
         className={styles.menuContainer}
+        onChange={handleClickSortItem}
       >
-        <MenuItem onClick={handleClose} className={styles.menuItem}>
+        <MenuItem
+          onClick={handleClickSortItem("episode_id")}
+          className={styles.menuItem}
+        >
           Episode
         </MenuItem>
-        <MenuItem onClick={handleClose} className={styles.menuItem}>
+        <MenuItem
+          onClick={handleClickSortItem("release_date")}
+          className={styles.menuItem}
+        >
           Year
         </MenuItem>
       </Menu>
@@ -53,4 +54,4 @@ const SortButton: FC = () => {
   );
 };
 
-export default SortButton;
+export default SortButtonView;
