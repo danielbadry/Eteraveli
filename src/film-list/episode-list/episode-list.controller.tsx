@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, MouseEventHandler, useEffect } from "react";
 import EpisodeListView from "./episode-list.view";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -21,15 +21,27 @@ const EpisodeListController: FC = () => {
     dispatch(fetchFilmsRequest());
   }, []);
 
-  const handleSelectEpisode = (filmItem: FilmListInterface) => (event: any) => {
-    dispatch(selectEpisode({ selectedEpisode: filmItem }));
-  };
+  /**
+   * @description on click of a sort option, dispatches the sort value to the store
+   * @param {FilmListInterface} filmItem
+   * @param {MouseEventHandler<HTMLLIElement> | undefined} event
+   * @returns {void}
+   */
+  /**
+   * @description shouldn't use arrow function in JSX
+   */
+  const handleSelectEpisode =
+    (filmItem: FilmListInterface) =>
+    (event: MouseEventHandler<HTMLLIElement>): void => {
+      dispatch(selectEpisode({ selectedEpisode: filmItem }));
+    };
 
   return (
     <EpisodeListView
       isLoading={pending}
       filmList={filmList}
       handleSelectEpisode={handleSelectEpisode}
+      error={error}
     />
   );
 };

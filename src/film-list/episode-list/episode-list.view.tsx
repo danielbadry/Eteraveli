@@ -7,10 +7,18 @@ import { FilmListInterface } from "../../redux/films/types";
 import { useDispatch } from "react-redux";
 import { EpisodeInfo } from "./episode-info";
 const EpisodeListView: FC<EpisodeListViewPropsInterface> = (props) => {
-  const { filmList, isLoading, handleSelectEpisode } = props;
+  const { filmList, isLoading, handleSelectEpisode, error } = props;
 
   if (isLoading) {
     return <div className={styles.isLoading}>Loading...</div>;
+  }
+
+  if (error) {
+    return (
+      <div className={styles.isLoading}>
+        An unknown error occurred. Please refresh ...{" "}
+      </div>
+    );
   }
   return (
     <>
@@ -18,8 +26,8 @@ const EpisodeListView: FC<EpisodeListViewPropsInterface> = (props) => {
         <List>
           {filmList?.map((filmItem: FilmListInterface) => (
             <ListItem
-              className={styles.listItemContainer}
               onClick={handleSelectEpisode(filmItem)}
+              className={styles.listItemContainer}
               key={filmItem.episode_id}
             >
               <div className={styles.episodeName}>
