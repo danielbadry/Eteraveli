@@ -1,5 +1,10 @@
 describe("empty spec", () => {
   it("search mistake word", () => {
+    // mocking request - GET method
+    cy.intercept("GET", "https://swapi.dev/api/films/?format=json", {
+      fixture: "mock/movie-list.json",
+    }).as("GetMovieList");
+
     cy.visit("http://localhost:3000");
     cy.wait(5000);
 
@@ -15,6 +20,11 @@ describe("empty spec", () => {
   });
 
   it("search 'the' world", () => {
+    // mocking request - GET method
+    cy.intercept("GET", "https://swapi.dev/api/films/?format=json", {
+      fixture: "mock/movie-list.json",
+    }).as("GetMovieList");
+
     cy.visit("http://localhost:3000");
     cy.wait(5000);
 
