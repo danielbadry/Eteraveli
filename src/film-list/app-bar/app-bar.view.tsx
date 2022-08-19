@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC } from "react";
 import styles from "./app-bar.module.scss";
 import { SearchInput } from "./search-input/";
 import { SortButton } from "./sort-button/";

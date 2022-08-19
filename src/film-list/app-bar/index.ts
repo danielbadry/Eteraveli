@@ -1,1 +1,1 @@
-export { default as AppBar } from "./app-bar.controller";
+export { default as AppBar } from "./app-bar.view";
