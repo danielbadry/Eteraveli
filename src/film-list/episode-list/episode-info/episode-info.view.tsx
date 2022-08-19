@@ -5,10 +5,14 @@ const EpisodeInfoView: FC<EpisodeInfoViewPropsInterface> = (props) => {
   const { episodeInfo } = props;
 
   if (!episodeInfo)
-    return <div className={styles.noMovie}>No movie selected</div>;
+    return (
+      <div data-test="no-movie-selected" className={styles.noMovie}>
+        No movie selected
+      </div>
+    );
 
   return (
-    <div className={styles.infoContainer}>
+    <div data-test="movie-info" className={styles.infoContainer}>
       <div className={styles.title}>{episodeInfo.title}</div>
       <div
         className={styles.body}

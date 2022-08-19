@@ -22,12 +22,13 @@ const EpisodeListView: FC<EpisodeListViewPropsInterface> = (props) => {
   return (
     <>
       <div className={styles.container}>
-        <List>
+        <List data-test="movie-list">
           {filmList?.map((filmItem: FilmListInterface) => (
             <ListItem
               onClick={handleSelectEpisode(filmItem)}
               className={styles.listItemContainer}
               key={filmItem.episode_id}
+              data-test="movie-list-item"
             >
               <div className={styles.episodeName}>
                 Episode {filmItem.episode_id}
