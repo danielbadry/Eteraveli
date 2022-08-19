@@ -5,8 +5,13 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import styles from "./search-input.module.scss";
 import SearchIcon from "@mui/icons-material/Search";
+import { setSearchValue } from "../../../redux/films/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { SearchInputViewPropsInterface } from "./search-input.type";
 
-const SearchInput = () => {
+const SearchInputView: React.FC<SearchInputViewPropsInterface> = (props) => {
+  const { handleChangeValue } = props;
+
   return (
     <Paper
       component="form"
@@ -18,8 +23,9 @@ const SearchInput = () => {
         sx={{ ml: 1, flex: 1 }}
         placeholder="Type to search"
         inputProps={{ "aria-label": "Type to search" }}
+        onChange={handleChangeValue}
       />
     </Paper>
   );
 };
-export default SearchInput;
+export default SearchInputView;

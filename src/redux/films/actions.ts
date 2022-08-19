@@ -3,6 +3,7 @@ import {
   FETCH_FILMS_FAILURE,
   FETCH_FILMS_SUCCESS,
   SELECT_EPISODE,
+  SET_SEARCH_VALUE,
 } from "./actionTypes";
 import {
   FetchFilmsRequest,
@@ -12,6 +13,8 @@ import {
   FetchFilmsFailurePayload,
   SelectedEpisodePayload,
   SelectedEpisode,
+  SetSearchValuePayload,
+  SearchValue,
 } from "./types";
 
 export const fetchFilmsRequest = (): FetchFilmsRequest => ({
@@ -36,5 +39,12 @@ export const selectEpisode = (
   payload: SelectedEpisodePayload
 ): SelectedEpisode => ({
   type: SELECT_EPISODE,
+  payload,
+});
+
+export const setSearchValue = (
+  payload: SetSearchValuePayload
+): SearchValue => ({
+  type: SET_SEARCH_VALUE,
   payload,
 });

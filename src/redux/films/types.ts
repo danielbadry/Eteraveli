@@ -3,6 +3,8 @@ import {
   FETCH_FILMS_SUCCESS,
   FETCH_FILMS_FAILURE,
   SELECT_EPISODE,
+  SET_SORT_VALUE,
+  SET_SEARCH_VALUE,
 } from "./actionTypes";
 
 export interface FilmAxiosResponse {
@@ -29,6 +31,7 @@ export interface FilmsState {
   films: FilmListInterface[];
   error: string | null;
   selectedEpisode: string | null;
+  sortValue: string | null;
 }
 
 export interface FetchFilmsSuccessPayload {
@@ -61,8 +64,25 @@ export type SelectedEpisode = {
   payload: SelectedEpisodePayload;
 };
 
+export interface SetSearchValuePayload {
+  searchValue: any;
+}
+export type SearchValue = {
+  type: typeof SET_SEARCH_VALUE;
+  payload: SetSearchValuePayload;
+};
+
+export interface SetSortValuePayload {
+  sortValue: any;
+}
+export type SortValue = {
+  type: typeof SET_SORT_VALUE;
+  payload: SetSortValuePayload;
+};
+
 export type FilmsActions =
   | FetchFilmsRequest
   | FetchFilmsSuccess
   | FetchFilmsFailure
+  | SortValue
   | SelectedEpisode;
