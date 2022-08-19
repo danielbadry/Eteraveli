@@ -1,6 +1,4 @@
-import { FC, ReactElement } from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
+import { FC } from "react";
 import styles from "./episode-info.module.scss";
 import { EpisodeInfoViewPropsInterface } from "./episode-info.type";
 const EpisodeInfoView: FC<EpisodeInfoViewPropsInterface> = (props) => {
