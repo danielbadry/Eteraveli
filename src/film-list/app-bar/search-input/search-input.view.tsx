@@ -20,6 +20,7 @@ const SearchInputView: React.FC<SearchInputViewPropsInterface> = (props) => {
         placeholder="Type to search"
         inputProps={{ "aria-label": "Type to search" }}
         onChange={handleChangeValue}
+        data-test="search-input"
       />
     </Paper>
   );
