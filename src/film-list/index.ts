@@ -1,1 +1,1 @@
-export { default as FilmList } from "./film-list.controller";
+export { default as FilmList } from "./film-list.view";

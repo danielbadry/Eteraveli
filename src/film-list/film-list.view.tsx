@@ -1,10 +1,8 @@
-import { FC, ReactElement } from "react";
+import { FC } from "react";
 import { AppBar } from "./app-bar";
-import { EpisodeInfo } from "./episode-list/episode-info";
 import { EpisodeList } from "./episode-list";
 import styles from "./film-list.module.scss";
-import { FilmListViewPropsInterface } from "./film-list.type";
-const FilmListView: FC = (props) => {
+const FilmListView: FC = () => {
   return (
     <div className={styles.container}>
       <AppBar />
