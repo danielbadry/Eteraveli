@@ -4,7 +4,6 @@ import ListItem from "@mui/material/ListItem";
 import styles from "./episode-list.module.scss";
 import { EpisodeListViewPropsInterface } from "./episode-list.type";
 import { FilmListInterface } from "../../redux/films/types";
-import { useDispatch } from "react-redux";
 import { EpisodeInfo } from "./episode-info";
 const EpisodeListView: FC<EpisodeListViewPropsInterface> = (props) => {
   const { filmList, isLoading, handleSelectEpisode, error } = props;
@@ -16,7 +15,7 @@ const EpisodeListView: FC<EpisodeListViewPropsInterface> = (props) => {
   if (error) {
     return (
       <div className={styles.isLoading}>
-        An unknown error occurred. Please refresh ...{" "}
+        An unknown error occurred. Please refresh ...
       </div>
     );
   }
