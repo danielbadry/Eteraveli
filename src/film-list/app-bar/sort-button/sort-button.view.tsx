@@ -41,8 +41,8 @@ const SortButtonView: FC<SortButtonViewPropsInterface> = (props) => {
           horizontal: "left",
         }}
         className={styles.menuContainer}
-        onChange={handleClickSortItem}
       >
+        {/* @ts-ignore */}
         <MenuItem
           onClick={handleClickSortItem("episode_id")}
           className={styles.menuItem}
@@ -50,6 +50,7 @@ const SortButtonView: FC<SortButtonViewPropsInterface> = (props) => {
         >
           Episode
         </MenuItem>
+        {/* @ts-ignore */}
         <MenuItem
           onClick={handleClickSortItem("release_date")}
           className={styles.menuItem}
