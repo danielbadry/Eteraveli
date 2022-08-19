@@ -31,6 +31,7 @@ export interface FilmsState {
   films: FilmListInterface[];
   error: string | null;
   selectedEpisode: string | null;
+  sortValue: string | null;
 }
 
 export interface FetchFilmsSuccessPayload {
@@ -83,4 +84,5 @@ export type FilmsActions =
   | FetchFilmsRequest
   | FetchFilmsSuccess
   | FetchFilmsFailure
+  | SortValue
   | SelectedEpisode;

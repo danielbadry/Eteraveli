@@ -6,8 +6,14 @@ import styles from "./sort-button.module.scss";
 import { SortButtonViewPropsInterface } from "./sort-button.type";
 
 const SortButtonView: FC<SortButtonViewPropsInterface> = (props) => {
-  const { handleClick, handleClose, isOpen, anchorEl, handleClickSortItem } =
-    props;
+  const {
+    handleClick,
+    handleClose,
+    isOpen,
+    anchorEl,
+    handleClickSortItem,
+    selectedSort,
+  } = props;
   return (
     <>
       <Button
@@ -40,12 +46,14 @@ const SortButtonView: FC<SortButtonViewPropsInterface> = (props) => {
         <MenuItem
           onClick={handleClickSortItem("episode_id")}
           className={styles.menuItem}
+          selected={selectedSort === "episode_id"}
         >
           Episode
         </MenuItem>
         <MenuItem
           onClick={handleClickSortItem("release_date")}
           className={styles.menuItem}
+          selected={selectedSort === "release_date"}
         >
           Year
         </MenuItem>

@@ -4,4 +4,5 @@ export interface SortButtonViewPropsInterface {
   isOpen: any;
   anchorEl: any;
   handleClickSortItem: any;
+  selectedSort: string | null;
 }

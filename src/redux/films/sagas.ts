@@ -8,11 +8,22 @@ import {
   SET_SEARCH_VALUE,
   SET_SORT_VALUE,
 } from "./actionTypes";
-import { getFilmsSelector } from "./selectors";
-import { FilmAxiosResponse, FilmListInterface } from "./types";
+import { getFilmsSelector, getSortValueSelector } from "./selectors";
+import {
+  FilmAxiosResponse,
+  FilmListInterface,
+  SearchValue,
+  SortValue,
+} from "./types";
 
 const getFilms = () =>
   axios.get<FilmAxiosResponse>("https://swapi.dev/api/films/?format=json");
+
+const sortFilmList = (filmList: FilmListInterface[], sortValue: string) => {
+  return JSON.parse(JSON.stringify(filmList)).sort((a: any, b: any) =>
+    a[sortValue] > b[sortValue] ? 1 : -1
+  );
+};
 
 /*
   Worker Saga: Fired on FETCH_FILMS_REQUEST action
@@ -36,23 +47,27 @@ function* fetchFilmsSaga() {
   }
 }
 
-function* filterFilmBySearchValue({ payload }: any) {
-  //TODO: check lower case and search in all items
+function* filterFilmBySearchValue({ payload }: SearchValue) {
+  let sortValue: string = yield select(getSortValueSelector);
+
+  //TODO: is it needed to search in all items?
+  let filmList: FilmListInterface[] = allMovies.filter((item) => {
+    return item.title.toLowerCase().includes(payload.searchValue.toLowerCase());
+  });
+  filmList = sortFilmList(filmList, sortValue);
+
   yield put(
     fetchFilmsSuccess({
-      films: allMovies.filter((item) => {
-        return item.title.includes(payload.searchValue);
-      }),
+      films: filmList,
     })
   );
 }
 
-function* sortFilmBySortValue({ payload }: any) {
+function* sortFilmBySortValue({ payload }: SortValue) {
   let filmList: FilmListInterface[] = yield select(getFilmsSelector);
-  filmList = JSON.parse(JSON.stringify(filmList));
-  filmList = filmList.sort((a: any, b: any) =>
-    a[payload.sortValue] > b[payload.sortValue] ? 1 : -1
-  );
+
+  //TODO: is it needed to sort by date separately?
+  filmList = sortFilmList(filmList, payload.sortValue);
 
   yield put(
     fetchFilmsSuccess({

@@ -5,6 +5,7 @@ import { setSortValue } from "../../../redux/films/actions";
 
 const SortButton: FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [selectedSort, setSelectedSort] = useState<null | string>(null);
 
   const dispatch = useDispatch();
 
@@ -20,7 +21,8 @@ const SortButton: FC = () => {
 
   const handleClickSortItem = (sortName: string) => (event: any) => {
     dispatch(setSortValue({ sortValue: sortName }));
-    setAnchorEl(null);
+    setSelectedSort(sortName);
+    handleCloseSortMenu();
   };
 
   return (
@@ -28,6 +30,7 @@ const SortButton: FC = () => {
       handleClick={handleOpenSortMenu}
       handleClose={handleCloseSortMenu}
       handleClickSortItem={handleClickSortItem}
+      selectedSort={selectedSort}
       isOpen={isOpen}
       anchorEl={anchorEl}
     />
