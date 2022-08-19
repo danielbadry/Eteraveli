@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from "axios";
-import { useSelector } from "react-redux";
 import { all, call, put, takeLatest, select } from "redux-saga/effects";
 
 import { fetchFilmsFailure, fetchFilmsSuccess } from "./actions";

@@ -4,7 +4,6 @@ import {
   FETCH_FILMS_FAILURE,
   SELECT_EPISODE,
   SET_SORT_VALUE,
-  SET_SEARCH_VALUE,
 } from "./actionTypes";
 
 import { FilmsActions, FilmsStateInterface } from "./types";

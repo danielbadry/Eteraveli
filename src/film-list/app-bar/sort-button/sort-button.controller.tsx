@@ -1,6 +1,6 @@
 import { FC, useState, MouseEvent, MouseEventHandler } from "react";
 import SortButtonView from "./sort-button.view";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setSortValue } from "../../../redux/films/actions";
 
 const SortButton: FC = () => {

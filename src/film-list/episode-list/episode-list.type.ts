@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import { FilmListInterface } from "../../redux/films/types";
 
 export interface EpisodeListViewPropsInterface {
