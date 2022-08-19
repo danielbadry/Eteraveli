@@ -13,3 +13,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### `yarn e2e`
 
 Launches the test runner in the interactive watch mode.We wrote some e2e test in project
+
+
+### `yarn build`
+Build project into build folder
