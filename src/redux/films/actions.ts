@@ -7,52 +7,54 @@ import {
   SET_SORT_VALUE,
 } from "./actionTypes";
 import {
-  FetchFilmsRequest,
-  FetchFilmsSuccess,
-  FetchFilmsSuccessPayload,
-  FetchFilmsFailure,
-  FetchFilmsFailurePayload,
-  SelectedEpisodePayload,
-  SelectedEpisode,
-  SetSearchValuePayload,
-  SearchValue,
-  SetSortValuePayload,
-  SortValue,
+  FetchFilmsRequestInterface,
+  FetchFilmsSuccessType,
+  FetchFilmsSuccessPayloadInterface,
+  FetchFilmsFailureType,
+  FetchFilmsFailurePayloadInterface,
+  SelectedEpisodePayloadInterface,
+  SelectedEpisodeType,
+  SetSearchValuePayloadInterface,
+  SearchValueType,
+  SetSortValuePayloadInterface,
+  SortValueType,
 } from "./types";
 
-export const fetchFilmsRequest = (): FetchFilmsRequest => ({
+export const fetchFilmsRequest = (): FetchFilmsRequestInterface => ({
   type: FETCH_FILMS_REQUEST,
 });
 
 export const fetchFilmsSuccess = (
-  payload: FetchFilmsSuccessPayload
-): FetchFilmsSuccess => ({
+  payload: FetchFilmsSuccessPayloadInterface
+): FetchFilmsSuccessType => ({
   type: FETCH_FILMS_SUCCESS,
   payload,
 });
 
 export const fetchFilmsFailure = (
-  payload: FetchFilmsFailurePayload
-): FetchFilmsFailure => ({
+  payload: FetchFilmsFailurePayloadInterface
+): FetchFilmsFailureType => ({
   type: FETCH_FILMS_FAILURE,
   payload,
 });
 
 export const selectEpisode = (
-  payload: SelectedEpisodePayload
-): SelectedEpisode => ({
+  payload: SelectedEpisodePayloadInterface
+): SelectedEpisodeType => ({
   type: SELECT_EPISODE,
   payload,
 });
 
 export const setSearchValue = (
-  payload: SetSearchValuePayload
-): SearchValue => ({
+  payload: SetSearchValuePayloadInterface
+): SearchValueType => ({
   type: SET_SEARCH_VALUE,
   payload,
 });
 
-export const setSortValue = (payload: SetSortValuePayload): SortValue => ({
+export const setSortValue = (
+  payload: SetSortValuePayloadInterface
+): SortValueType => ({
   type: SET_SORT_VALUE,
   payload,
 });

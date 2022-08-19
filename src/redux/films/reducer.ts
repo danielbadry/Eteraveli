@@ -7,9 +7,9 @@ import {
   SET_SEARCH_VALUE,
 } from "./actionTypes";
 
-import { FilmsActions, FilmsState } from "./types";
+import { FilmsActions, FilmsStateInterface } from "./types";
 
-const initialState: FilmsState = {
+const initialState: FilmsStateInterface = {
   pending: false,
   films: [],
   error: null,

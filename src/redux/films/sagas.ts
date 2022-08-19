@@ -10,14 +10,16 @@ import {
 } from "./actionTypes";
 import { getFilmsSelector, getSortValueSelector } from "./selectors";
 import {
-  FilmAxiosResponse,
+  FilmAxiosResponseInterface,
   FilmListInterface,
-  SearchValue,
-  SortValue,
+  SearchValueType,
+  SortValueType,
 } from "./types";
 
 const getFilms = () =>
-  axios.get<FilmAxiosResponse>("https://swapi.dev/api/films/?format=json");
+  axios.get<FilmAxiosResponseInterface>(
+    "https://swapi.dev/api/films/?format=json"
+  );
 
 const sortFilmList = (filmList: FilmListInterface[], sortValue: string) => {
   return JSON.parse(JSON.stringify(filmList)).sort((a: any, b: any) =>
@@ -31,7 +33,9 @@ const sortFilmList = (filmList: FilmListInterface[], sortValue: string) => {
 let allMovies: FilmListInterface[] = [];
 function* fetchFilmsSaga() {
   try {
-    const response: AxiosResponse<FilmAxiosResponse> = yield call(getFilms);
+    const response: AxiosResponse<FilmAxiosResponseInterface> = yield call(
+      getFilms
+    );
     allMovies = response.data.results;
     yield put(
       fetchFilmsSuccess({
@@ -47,7 +51,7 @@ function* fetchFilmsSaga() {
   }
 }
 
-function* filterFilmBySearchValue({ payload }: SearchValue) {
+function* filterFilmBySearchValue({ payload }: SearchValueType) {
   let sortValue: string = yield select(getSortValueSelector);
 
   //TODO: is it needed to search in all items?
@@ -63,7 +67,7 @@ function* filterFilmBySearchValue({ payload }: SearchValue) {
   );
 }
 
-function* sortFilmBySortValue({ payload }: SortValue) {
+function* sortFilmBySortValue({ payload }: SortValueType) {
   let filmList: FilmListInterface[] = yield select(getFilmsSelector);
 
   //TODO: is it needed to sort by date separately?

@@ -7,7 +7,7 @@ import {
   SET_SEARCH_VALUE,
 } from "./actionTypes";
 
-export interface FilmAxiosResponse {
+export interface FilmAxiosResponseInterface {
   count: number;
   results: FilmListInterface[];
 }
@@ -26,7 +26,7 @@ export interface FilmListInterface {
   url: string;
 }
 
-export interface FilmsState {
+export interface FilmsStateInterface {
   pending: boolean;
   films: FilmListInterface[];
   error: string | null;
@@ -34,55 +34,55 @@ export interface FilmsState {
   sortValue: string | null;
 }
 
-export interface FetchFilmsSuccessPayload {
+export interface FetchFilmsSuccessPayloadInterface {
   films: FilmListInterface[];
 }
 
-export interface FetchFilmsFailurePayload {
+export interface FetchFilmsFailurePayloadInterface {
   error: string;
 }
 
-export interface FetchFilmsRequest {
+export interface FetchFilmsRequestInterface {
   type: typeof FETCH_FILMS_REQUEST;
 }
 
-export type FetchFilmsSuccess = {
+export type FetchFilmsSuccessType = {
   type: typeof FETCH_FILMS_SUCCESS;
-  payload: FetchFilmsSuccessPayload;
+  payload: FetchFilmsSuccessPayloadInterface;
 };
 
-export type FetchFilmsFailure = {
+export type FetchFilmsFailureType = {
   type: typeof FETCH_FILMS_FAILURE;
-  payload: FetchFilmsFailurePayload;
+  payload: FetchFilmsFailurePayloadInterface;
 };
 
-export interface SelectedEpisodePayload {
+export interface SelectedEpisodePayloadInterface {
   selectedEpisode: any;
 }
-export type SelectedEpisode = {
+export type SelectedEpisodeType = {
   type: typeof SELECT_EPISODE;
-  payload: SelectedEpisodePayload;
+  payload: SelectedEpisodePayloadInterface;
 };
 
-export interface SetSearchValuePayload {
+export interface SetSearchValuePayloadInterface {
   searchValue: any;
 }
-export type SearchValue = {
+export type SearchValueType = {
   type: typeof SET_SEARCH_VALUE;
-  payload: SetSearchValuePayload;
+  payload: SetSearchValuePayloadInterface;
 };
 
-export interface SetSortValuePayload {
+export interface SetSortValuePayloadInterface {
   sortValue: any;
 }
-export type SortValue = {
+export type SortValueType = {
   type: typeof SET_SORT_VALUE;
-  payload: SetSortValuePayload;
+  payload: SetSortValuePayloadInterface;
 };
 
 export type FilmsActions =
-  | FetchFilmsRequest
-  | FetchFilmsSuccess
-  | FetchFilmsFailure
-  | SortValue
-  | SelectedEpisode;
+  | FetchFilmsRequestInterface
+  | FetchFilmsSuccessType
+  | FetchFilmsFailureType
+  | SortValueType
+  | SelectedEpisodeType;
