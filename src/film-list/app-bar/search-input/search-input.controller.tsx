@@ -2,6 +2,7 @@ import * as React from "react";
 import { setSearchValue } from "../../../redux/films/actions";
 import { useDispatch } from "react-redux";
 import SearchInputView from "./search-input.view";
+import { debounce } from "@mui/material";
 
 const SearchInputController = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,12 @@ const SearchInputController = () => {
     dispatch(setSearchValue({ searchValue: event.target.value }));
   };
 
-  return <SearchInputView handleChangeValue={handleChangeValue} />;
+  /**
+   * @description debounces the search value to the store
+   * @returns {void}
+   **/
+  const debouncedHandleChangeValue = debounce(handleChangeValue, 300);
+
+  return <SearchInputView handleChangeValue={debouncedHandleChangeValue} />;
 };
 export default SearchInputController;
